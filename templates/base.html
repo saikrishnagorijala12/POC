@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Flask + FusionAuth Demo</title>
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; margin: 24px; }
+      header { margin-bottom: 20px; }
+      .card { border: 1px solid #ddd; padding: 16px; border-radius: 6px; max-width: 800px; }
+      a { color: #007bff; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="{{ url_for('index') }}">Home</a> |
+      {% if user %}
+        <a href="{{ url_for('profile') }}">Profile</a> |
+        <a href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+      {% endif %}
+    </header>
+
+    <main class="card">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <ul>
+          {% for cat, msg in messages %}
+            <li><strong>{{ cat }}</strong>: {{ msg }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
+

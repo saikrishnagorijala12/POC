@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Welcome</h2>
+  {% if user %}
+    <p>Hello, <strong>{{ user.name or user.email }}</strong> — you are logged in.</p>
+    <p><a href="{{ url_for('profile') }}">View profile</a></p>
+  {% else %}
+    <p>You are not logged in. <a href="{{ url_for('login') }}">Sign in with FusionAuth</a></p>
+  {% endif %}
+{% endblock %}

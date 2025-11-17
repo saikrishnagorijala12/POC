@@ -1,0 +1,22 @@
+"""
+Simple Flask app with SQLite (using Flask-SQLAlchemy).
+
+Features included:
+- Configuration for SQLite file `data.db`
+- SQLAlchemy models: User, Product, Order, OrderItem
+- Endpoints to initialize the database and add/list sample data
+- Instructions at the bottom showing how to run the app
+
+Run:
+    pip install -r requirements.txt
+    python flask_sqlite_app.py
+
+Then open http://127.0.0.1:5000/
+
+Note: This example uses a small in-memory-safe approach and is suitable for learning and small apps.
+"""
+
+
+# -------------------------
+# Models
+# -------------------------
